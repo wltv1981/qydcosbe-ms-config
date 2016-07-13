@@ -1,0 +1,49 @@
+   94  2016-07-13 17:21:01 docker run --name qy-ldap -p 9443:9443 -p 10389:10389 -d isim/wso2is
+   98  2016-07-13 17:24:39 docker run --name qyweb-db -v /var/lib/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1q2w3e4r -e MYSQL_DATABASE=qyweb -p 3306:3306 -d mysql:5.7
+  121  2016-07-13 18:09:08 docker run --name qyweb --link qyweb-db:qyweb-db --env-file ./env.lsit -p 9090:8080 --add-host hub.picc.local:10.10.0.16 -d qyweb/qydcos
+  123  2016-07-13 18:09:54 docker run --name qyweb --link qyweb-db:qyweb-db --env-file /super/qingyuanOS/env.list -p 9090:8080 --add-host hub.picc.local:10.10.0.16 -d qyweb/qydcos
+  148  2016-07-13 18:31:06 docker run --name qyweb --link qyweb-db:qyweb-db --env-file /super/qingyuanOS/env.list -p 9090:8080 --add-host hub.picc.local:10.10.0.16 --env CATALINA_OPTS="-Ddb.url=qyweb-db" -d qyweb/qydcos
+  151  2016-07-13 18:31:33 docker run --name qyweb --link qyweb-db:qyweb-db --env-file /super/qingyuanOS/env.list -p 9090:8080 --add-host hub.picc.local:10.10.0.16 --env CATALINA_OPTS="-Ddb.url=qyweb-db" -d qyweb/qydcos
+  159  2016-07-13 18:39:59 docker run -p 8888 --env spring.cloud.config.server.git.url=/super/qingyuanOS/qydcosbe-ms-config qybe/config-server 
+  179  2016-07-13 18:49:41 docker run -p 8888 --env spring.cloud.config.server.git.url=/super/qingyuanOS/qydcosbe-ms-config -d qybe/config-server
+  185* 2016-07-13 18:50:57 docker run -p 8804:8804 --env spring.cloud.config.server.git.url=/super/qingyuanOS/qydcosbe-ms-config -d qybe/config-server
+  213  2016-07-13 19:26:07 docker run     -it --name docker_auth -p 5001:5001     -v /home/ubuntu/work/docker-auth:/config:ro     -v /home/ubuntu/work/docker-auth/ssl:/ssl:ro     -v /home/ubuntu/work/logs:/logs     -d \
+  222  2016-07-13 19:30:34 docker run     -it --name docker_auth -p 5001:5001     -v /super/qingyuanOS/docker-auth:/config:ro     -v /super/qingyuanOS/docker-auth/ssl:/ssl:ro     -v /super/qingyuanOS/logs:/logs     -d     cesanta/docker_auth:latest /config/auth_config.yml
+  230  2016-07-13 19:33:02 docker run     -it --name docker_auth -p 5001:5001     -v /super/qingyuanOS/docker-auth/config:/config:ro     -v /super/qingyuanOS/docker-auth/ssl:/ssl:ro     -v /super/qingyuanOS/logs:/logs     -d     cesanta/docker_auth:latest /config/auth_config.yml
+  236  2016-07-13 19:51:43 docker run --name docker-reg qybe/docker-registry
+  251  2016-07-13 19:59:54 docker run -p 8888 --env SPRING_CLOUD_CONFIG_SERVER_GIT_URL=/super/qingyuanOS/qydcosbe-ms-config qybe/config-server
+  257  2016-07-13 20:01:40 docker run -p 8888 --env SPRING_CLOUD_CONFIG_SERVER_GIT_URL=/super/qingyuanOS/qydcosbe-ms-config -d qybe/config-server
+  261  2016-07-13 20:03:14 docker run --name conf-server -p 8888:8888 --env SPRING_CLOUD_CONFIG_SERVER_GIT_URL=/super/qingyuanOS/qydcosbe-ms-config -d qybe/config-server
+  265  2016-07-13 20:04:17 docker run --name conf-server -p 8888:8888 --env SPRING_CLOUD_CONFIG_SERVER_GIT_URL=/super/qingyuanOS/qydcosbe-ms-config qybe/config-server
+  266  2016-07-13 20:05:35 docker run --name conf-server -p 8888:8888 --env SPRING_CLOUD_CONFIG_SERVER_GIT_URL=/super/qingyuanOS/qydcosbe-ms-config -d qybe/config-server
+  269  2016-07-13 20:06:31 docker run --name conf-server -p 8888:8888 --env SPRING_CLOUD_CONFIG_SERVER_GIT_URL=/super/qingyuanOS/qydcosbe-ms-config -d qybe/config-server
+  273  2016-07-13 20:09:12 docker run --name conf-server -p 8888:8888 -v /super/qingyuanOS/qydcosbe-ms-config:/root/work/qydcosbe-ms-config -e spring.cloud.config.server.git.uri=/root/work/qydcosbe-ms-config -d qybe/config-server
+  278  2016-07-13 20:10:31 docker run --name docker-reg qybe/docker-registry
+  282  2016-07-13 20:11:05 docker run --name docker-reg qybe/docker-registry
+  291  2016-07-13 20:19:13 docker run --name docker-reg qybe/docker-registry
+  294  2016-07-13 20:23:15 docker run --name docker-reg -e --link qyweb-db:qyweb-db qybe/docker-registry
+  295  2016-07-13 20:23:41 docker run --name docker-reg --link qyweb-db:qyweb-db qybe/docker-registry
+  296  2016-07-13 20:26:35 docker run --name docker-reg --link qyweb-db:qyweb-db -e spring.datasource.url=jdbc:mysql://qyweb-db/qyweb?useUnicode=true&characterEncoding=utf8 qybe/docker-registry
+  297  2016-07-13 20:27:18 docker run --name docker-reg --link qyweb-db:qyweb-db -e spring.datasource.url="jdbc:mysql://qyweb-db/qyweb?useUnicode=true&characterEncoding=utf8" qybe/docker-registry
+  299  2016-07-13 20:27:34 docker run --name docker-reg --link qyweb-db:qyweb-db -e spring.datasource.url="jdbc:mysql://qyweb-db/qyweb?useUnicode=true&characterEncoding=utf8" qybe/docker-registry
+  303  2016-07-13 20:29:54 docker run --name docker-reg --link qyweb-db:qyweb-db qybe/docker-registry
+  305  2016-07-13 20:30:07 docker run --name docker-reg --link qyweb-db:qyweb-db qybe/docker-registry
+  308  2016-07-13 20:33:25 docker run --name docker-reg --link qyweb-db:qyweb-db qybe/docker-registry
+  311  2016-07-13 20:36:24 docker run --name docker-reg --link qyweb-db:qyweb-db qybe/docker-registry > ttt.txt
+  314  2016-07-13 20:40:30 docker run --name docker-reg --link qyweb-db:qyweb-db --link conf-server:conf-server -e spring.cloud.config.uri=http://conf-server:8888 qybe/docker-registry
+  315  2016-07-13 20:43:21 docker run --name docker-reg --link qyweb-db:qyweb-db --link co-e spring.cloud.config.uri=http://10.10.0.29:8888 -e docker-registry.auth-url=https://10.10.0.29:5001/auth qybe/docker-registry
+  317  2016-07-13 20:43:32 docker run --name docker-reg --link qyweb-db:qyweb-db --link co-e spring.cloud.config.uri=http://10.10.0.29:8888 -e docker-registry.auth-url=https://10.10.0.29:5001/auth qybe/docker-registry
+  318  2016-07-13 20:43:54 docker run --name docker-reg --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -e docker-registry.auth-url=https://10.10.0.29:5001/auth qybe/docker-registry
+  323  2016-07-13 20:46:12 docker run --name docker-reg --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 qybe/docker-registry
+  325  2016-07-13 20:47:06 docker run --name docker-reg --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -d qybe/docker-registry
+  326  2016-07-13 20:49:21 docker run --name cluster --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 qybe/caas-cluster
+  327  2016-07-13 20:50:52 docker run --name cluster --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8809:8809 -d qybe/caas-cluster
+  329  2016-07-13 20:51:04 docker run --name cluster --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8809:8809 -d qybe/caas-cluster
+  333  2016-07-13 20:53:57 docker run --name cdeploy --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8806:8806 qybe/caas-cluster
+  336  2016-07-13 20:55:10 docker run --name deploy --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8806:8806 qybe/qyos-deploy
+  338  2016-07-13 20:55:35 docker run --name deploy --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8806:8806 qybe/qyosdeploy
+  343  2016-07-13 20:59:28 docker run --name deploy --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8806:8806 qybe/qyosdeploy
+  346  2016-07-13 21:01:18 docker run --name deploy --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8806:8806 qybe/qyosdeploy
+  348  2016-07-13 21:02:01 docker run --name deploy --link qyweb-db:qyweb-db -e spring.cloud.config.uri=http://10.10.0.29:8888 -p 8806:8806 -d qybe/qyosdeploy
+  351  2016-07-13 21:02:59 history | grep docker run
+  352  2016-07-13 21:03:07 history | grep 'docker run'
